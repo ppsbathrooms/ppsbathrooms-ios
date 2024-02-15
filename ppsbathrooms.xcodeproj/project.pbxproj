@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72033FDA2B7A93F400FFCF9E /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72033FD92B7A93F400FFCF9E /* SettingsDetailView.swift */; };
+		720A892A2B7DEC0E008F4D19 /* MapRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A89292B7DEC0E008F4D19 /* MapRooms.swift */; };
 		72152A1C2B7BD34500EA1754 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72152A1B2B7BD34500EA1754 /* AccountView.swift */; };
 		724829532B7B3A78008099D1 /* SettingPannelViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724829522B7B3A78008099D1 /* SettingPannelViews.swift */; };
 		724829552B7B3EFC008099D1 /* FranklinMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724829542B7B3EFC008099D1 /* FranklinMapView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		72033FD92B7A93F400FFCF9E /* SettingsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
+		720A89292B7DEC0E008F4D19 /* MapRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRooms.swift; sourceTree = "<group>"; };
 		72152A1B2B7BD34500EA1754 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		724829522B7B3A78008099D1 /* SettingPannelViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPannelViews.swift; sourceTree = "<group>"; };
 		724829542B7B3EFC008099D1 /* FranklinMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranklinMapView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				724829542B7B3EFC008099D1 /* FranklinMapView.swift */,
+				720A89292B7DEC0E008F4D19 /* MapRooms.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				72B900CD2B7A89DA00DFBFAA /* SettingsView.swift in Sources */,
 				724829532B7B3A78008099D1 /* SettingPannelViews.swift in Sources */,
 				72033FDA2B7A93F400FFCF9E /* SettingsDetailView.swift in Sources */,
+				720A892A2B7DEC0E008F4D19 /* MapRooms.swift in Sources */,
 				72C8BE632B7737EF000C3897 /* ContentView.swift in Sources */,
 				72152A1C2B7BD34500EA1754 /* AccountView.swift in Sources */,
 				726B7E832B7A8E6200982817 /* Settings.swift in Sources */,
