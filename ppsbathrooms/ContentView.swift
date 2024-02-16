@@ -20,6 +20,7 @@ struct ContentView: View {
             VStack {
                 TabView(selection: $selectedTab) {
                     FranklinMapView()
+                        .background(Color("bgColor").gradient)
                         .tag(Tab.map)
                     ProfileView()
                         .tag(Tab.person)
@@ -33,7 +34,6 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             }
         }
-        
     }
 }
 
