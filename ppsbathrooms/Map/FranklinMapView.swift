@@ -10,26 +10,17 @@ import SwiftUI
 struct FranklinMapView: View {
     @State private var tappedRoom: String = ""
     @Environment(\.colorScheme) var colorScheme
-
+    
     var body: some View {
         ScrollView {
             ZStack {
-                ForEach(mapRooms.franklin) { room in
-                    //                    Rectangle()
-                    //                        .frame(width: room.size.width, height: room.size.height)
-                    //                        .position(room.position)
-                    //                        .foregroundColor(room.color)
-                    //                        .onTapGesture {
-                    //                            print("tapped \(room.color)")
-                    //                        }
-                }
-                
+                RoundedSquareView(coordinates: mapRooms.buttons)
                 VStack {
                     Text("ppsbathrooms")
                         .font(.title)
                         .fontWeight(.bold)
                     VStack {
-                        Image(uiImage: UIImage(named: "franklinMap\(colorScheme == .light ? "Invert" : "")")!)
+                        Image(uiImage: UIImage(named: "franklinMap\(colorScheme == .light ? "Inverted" : "")")!)
                             .renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -46,6 +37,25 @@ struct FranklinMapView: View {
     
 
 }
+
+struct RoundedSquareView: View {
+    var coordinates: [BrButton]
+
+    var body: some View {
+        ZStack {
+            ForEach(coordinates, id: \.self) { coordinate in
+                RoundedRectangle(cornerRadius: 7)
+                    .frame(width: 25, height: 25)
+                    .position(x: coordinate.x, y: coordinate.y)
+                    .foregroundStyle(.green)
+                    .onTapGesture {
+                        print("\(coordinate.label)")
+                    }
+            }
+        }
+    }
+}
+
 
 struct MapView: View {
     @Environment(\.colorScheme) var colorScheme
