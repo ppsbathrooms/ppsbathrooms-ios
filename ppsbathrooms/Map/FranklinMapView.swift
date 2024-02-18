@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FranklinMapView: View {
     @State private var tappedRoom: String = ""
+    @State private var brData: String = ""
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -27,14 +28,31 @@ struct FranklinMapView: View {
                             .padding()
                     }
                     Spacer()
-                        .frame(height: 150)
+                        .frame(height: 75)
                 }
                 .allowsHitTesting(false)
-                
             }
+        }
+        .onAppear {
+            fetchBrData()
+        }
+        .refreshable {
+            fetchBrData()
         }
     }
     
+    
+    func fetchBrData() {
+        guard let url = URL(string: "https://ppsbathrooms.org/data.json") else {
+            print("invalid url")
+            return
+        }
+
+        ApiManager.fetchData(from: url) { data in
+            self.brData = data
+            print(brData)
+        }
+    }
 
 }
 
@@ -44,12 +62,12 @@ struct RoundedSquareView: View {
     var body: some View {
         ZStack {
             ForEach(coordinates, id: \.self) { coordinate in
-                RoundedRectangle(cornerRadius: 7)
-                    .frame(width: 25, height: 25)
+                RoundedRectangle(cornerRadius: 4)
+                    .frame(width: 15, height: 15)
                     .position(x: coordinate.x, y: coordinate.y)
                     .foregroundStyle(.green)
                     .onTapGesture {
-                        print("\(coordinate.label)")
+                        print(coordinate.id)
                     }
             }
         }
