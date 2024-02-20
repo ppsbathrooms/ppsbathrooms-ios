@@ -20,7 +20,7 @@ struct ContentView: View {
             VStack {
                 TabView(selection: $selectedTab) {
                     FranklinMapView()
-                        .background(Color("bgColor").gradient)
+                        .background(Color("121211"))
                         .tag(Tab.map)
                     ProfileView()
                         .tag(Tab.person)
