@@ -7,15 +7,19 @@
 
 import SwiftUI
 
+struct Data: Codable {
+    let open: Int
+}
+
 struct FranklinMapView: View {
     @State private var tappedRoom: String = ""
-    @State private var brData: String = ""
+    @State private var brData: [[Int]] = []
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ScrollView {
             ZStack {
-                RoundedSquareView(coordinates: mapRooms.buttons)
+                RoomButtons(coordinates: mapRooms.buttons, brData: brData)
                 VStack {
                     Text("ppsbathrooms")
                         .font(.title)
@@ -48,29 +52,72 @@ struct FranklinMapView: View {
             return
         }
 
-        ApiManager.fetchData(from: url) { data in
-            self.brData = data
-            print(brData)
+        ApiManager.fetchData(from: url) { jsonString in
+            guard let jsonData = jsonString.data(using: .utf8) else {
+                print("Failed to convert JSON string to data.")
+                return
+            }
+
+            do {
+                let stringArray = try JSONDecoder().decode([String].self, from: jsonData)
+
+                let arraysOfInts = stringArray.map { string in
+                    return string.components(separatedBy: ",").compactMap { Int($0) }
+                }
+
+                DispatchQueue.main.async {
+                    self.brData = arraysOfInts
+                }
+            } catch {
+                print("Error decoding JSON:", error)
+            }
         }
     }
-
 }
 
-struct RoundedSquareView: View {
+struct RoomButtons: View {
     var coordinates: [BrButton]
+    var brData: [[Int]]
 
     var body: some View {
         ZStack {
+            
             ForEach(coordinates, id: \.self) { coordinate in
                 RoundedRectangle(cornerRadius: 4)
                     .frame(width: 15, height: 15)
                     .position(x: coordinate.x, y: coordinate.y)
-                    .foregroundStyle(.green)
+                    .foregroundStyle(determineBrColor(id: coordinate.id))
                     .onTapGesture {
                         print(coordinate.id)
                     }
+                
+                // debug text
+                
+//                Text("\(coordinate.id)")
+//                    .position(x: coordinate.x, y: coordinate.y)
+//                    .foregroundStyle(.black)
+//                    .font(.system(size: 10))
             }
         }
+    }
+    
+    func determineBrColor(id: Int) -> Color {
+        guard brData.indices.contains(1) else {
+            // handle the case where there is no second array in brData
+            // while fetching data / no connection
+            return Color(.gray)
+        }
+
+        let secondArray = brData[1]
+
+        guard secondArray.indices.contains(id) else {
+            // handle the case where id is out of bounds for the second array
+            print("Index \(id) out of bounds for the second array.")
+            return Color(.blue)
+        }
+
+        let element = secondArray[id]
+        return element == 0 ? Color(.red) : Color(.green)
     }
 }
 

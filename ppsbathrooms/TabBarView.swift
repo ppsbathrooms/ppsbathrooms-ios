@@ -10,7 +10,7 @@ import SwiftUI
 public enum Tab: String, CaseIterable {
     case map
     case person
-    case gearshape
+//    case gearshape
 }
 
 struct TabBarView: View {
@@ -31,6 +31,7 @@ struct TabBarView: View {
                         .foregroundColor(selectedTab == tab ? Color(.label) : .gray)
                         .font(.system(size: 25))
                         .padding(20)
+                        .padding(.bottom, 5)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.1)) {

@@ -19,13 +19,14 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
+//                    FranklinOverlayView()
                     FranklinMapView()
                         .background(Color("121211"))
                         .tag(Tab.map)
                     ProfileView()
                         .tag(Tab.person)
-                    SettingsView()
-                        .tag(Tab.gearshape)
+//                    SettingsView()
+//                        .tag(Tab.gearshape)
                 }
             }
             VStack {
