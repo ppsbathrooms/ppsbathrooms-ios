@@ -14,6 +14,7 @@
 		724829552B7B3EFC008099D1 /* FranklinMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724829542B7B3EFC008099D1 /* FranklinMapView.swift */; };
 		726B7E832B7A8E6200982817 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B7E822B7A8E6200982817 /* Settings.swift */; };
 		7275BA652B7D88DC00AF04F5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275BA642B7D88DC00AF04F5 /* TabBarView.swift */; };
+		729B3B362B89063F003631E6 /* AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B3B352B89063F003631E6 /* AddBorder.swift */; };
 		72B900CD2B7A89DA00DFBFAA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B900CC2B7A89DA00DFBFAA /* SettingsView.swift */; };
 		72C8BE612B7737EF000C3897 /* ppsbathroomsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BE602B7737EF000C3897 /* ppsbathroomsApp.swift */; };
 		72C8BE632B7737EF000C3897 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BE622B7737EF000C3897 /* ContentView.swift */; };
@@ -34,6 +35,7 @@
 		724829562B7B3FE6008099D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		726B7E822B7A8E6200982817 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7275BA642B7D88DC00AF04F5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		729B3B352B89063F003631E6 /* AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBorder.swift; sourceTree = "<group>"; };
 		72B900CC2B7A89DA00DFBFAA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		72C8BE5D2B7737EF000C3897 /* ppsbathrooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ppsbathrooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C8BE602B7737EF000C3897 /* ppsbathroomsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ppsbathroomsApp.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		729B3B372B890653003631E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				729B3B352B89063F003631E6 /* AddBorder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		72C8BE542B7737EF000C3897 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		72C8BE5F2B7737EF000C3897 /* ppsbathrooms */ = {
 			isa = PBXGroup;
 			children = (
+				729B3B372B890653003631E6 /* Utilities */,
 				724829562B7B3FE6008099D1 /* Info.plist */,
 				72C8BE602B7737EF000C3897 /* ppsbathroomsApp.swift */,
 				72C8BE622B7737EF000C3897 /* ContentView.swift */,
@@ -215,6 +226,7 @@
 				7275BA652B7D88DC00AF04F5 /* TabBarView.swift in Sources */,
 				72DEF6352B848AB20032A5AA /* ProfileView.swift in Sources */,
 				72B900CD2B7A89DA00DFBFAA /* SettingsView.swift in Sources */,
+				729B3B362B89063F003631E6 /* AddBorder.swift in Sources */,
 				724829532B7B3A78008099D1 /* SettingPannelViews.swift in Sources */,
 				72033FDA2B7A93F400FFCF9E /* SettingsDetailView.swift in Sources */,
 				720A892A2B7DEC0E008F4D19 /* MapRooms.swift in Sources */,

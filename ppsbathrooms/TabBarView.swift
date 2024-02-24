@@ -17,7 +17,12 @@ struct TabBarView: View {
     
     @Binding var selectedTab: Tab
     private var fillImage: String {
-        selectedTab.rawValue + ".fill"
+        if(selectedTab.rawValue == "plus") {
+            selectedTab.rawValue + ".circle.fill"
+        }
+        else {
+            selectedTab.rawValue + ".fill"
+        }
     }
     
     

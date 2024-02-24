@@ -21,7 +21,6 @@ struct ContentView: View {
                 TabView(selection: $selectedTab) {
 //                    FranklinOverlayView()
                     FranklinMapView()
-                        .background(Color("121211"))
                         .tag(Tab.map)
                     ProfileView()
                         .tag(Tab.person)

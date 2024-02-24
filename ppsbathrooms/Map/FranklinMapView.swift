@@ -17,31 +17,32 @@ struct FranklinMapView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                RoomButtons(coordinates: mapRooms.buttons, brData: brData)
-                VStack {
-                    Text("ppsbathrooms")
-                        .font(.title)
-                        .fontWeight(.bold)
+        ZStack {
+            ScrollView {
+                ZStack {
+                    RoomButtons(coordinates: mapRooms.buttons, brData: brData)
                     VStack {
                         Image(uiImage: UIImage(named: "franklinMap\(colorScheme == .light ? "Inverted" : "")")!)
                             .renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding()
+                            .padding(.top, 50)
+                        Spacer()
+                            .frame(height: 75)
                     }
-                    Spacer()
-                        .frame(height: 75)
+                    .allowsHitTesting(false)
                 }
-                .allowsHitTesting(false)
             }
-        }
-        .onAppear {
-            fetchBrData()
-        }
-        .refreshable {
-            fetchBrData()
+            .onAppear {
+                fetchBrData()
+            }
+            .refreshable {
+                fetchBrData()
+            }
+            .background(Color("121211"))
+            
+            Header()
         }
     }
     
@@ -147,3 +148,29 @@ struct MapView: View {
 #Preview(body: {
     ContentView()
 })
+
+struct Header: View {
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    Rectangle()
+                        .fill(Color("121211"))
+                        .ignoresSafeArea(.all)
+                        .shadow(
+                            color: Color("shadow"),
+                            radius: CGFloat(10)
+                        )
+                        .frame(width: geometry.size.width, height: 50)
+                    Spacer()
+                }
+                VStack {
+                    Text("ppsbathrooms")
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                }
+            }
+        }
+    }
+}

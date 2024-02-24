@@ -28,10 +28,13 @@ struct ProfileView: View {
                 UpdateSchedule(classes: $classes)
                 
                 ResetPrefs(showAlert: $showAlert)
-
-                Spacer()
-                    .frame(height: 45)
-                    .listRowBackground(Color.clear)
+                Section {
+                    Text(".")
+                }
+                .opacity(0)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+                
             }
             .alert(isPresented: $showAlert) {
                 Alert(
@@ -45,7 +48,6 @@ struct ProfileView: View {
                     },
                     secondaryButton: .cancel()
                 )
-                
             }
         }
     }
@@ -63,7 +65,7 @@ struct ProfilePicture: View {
                 .foregroundColor(.clear)
                 .overlay(
                     Circle()
-                        .stroke(Color.white, lineWidth: 2)
+                        .stroke(Color.primary, lineWidth: 2)
                 )
             Text("pic")
         }
